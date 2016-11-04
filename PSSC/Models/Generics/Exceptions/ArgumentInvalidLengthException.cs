@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Models.Generics.Exceptions
 {
-    public class InvalidCreditsValue : ArgumentException
+    class ArgumentInvalidLengthException : ArgumentException
     {
+        public ArgumentInvalidLengthException(string message)
+            : base(message)
+        {
+
+        }
     }
 }

@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Models.Generics;
+using Models.GenericEntities;
 
 namespace Models.Deanship
 {
     //Strategy Signature
     public interface IReportStrategy
     {
-        PlainText GenerateReport(List<Student.Student> students);
+        PlainText GenerateReport(List<GenericEntities.Student> students);
     }
 
     //Strategy Context

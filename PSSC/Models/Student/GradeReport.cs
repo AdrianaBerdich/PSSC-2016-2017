@@ -1,5 +1,5 @@
 ﻿using Models.Generics;
-using Models.Subject;
+using Models.GenericEntities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,16 +12,25 @@ namespace Models.Student
     //Aggregate Root
     public class GradeReport
     {
-        private ReadOnlyCollection<KeyValuePair<SubjectInformation, SubjectSituation>> _gradeReport;
+        private ReadOnlyCollection<RegisterSubjects> _gradeReport;
+        private PlainText plainText;
+        private Grade grade;
 
-        public GradeReport(ReadOnlyCollection<KeyValuePair<SubjectInformation, SubjectSituation>> gradeReport)
+        public GradeReport(ReadOnlyCollection<RegisterSubjects> gradeReport)
         {
             _gradeReport = gradeReport;
         }
 
-        public SubjectSituation GetSubjectSituation(PlainText subjectName)
+        public GradeReport(PlainText plainText, Grade grade)
         {
-            return _gradeReport.First(d => d.Key.Name == subjectName).Value;
+            // TODO: Complete member initialization
+            this.plainText = plainText;
+            this.grade = grade;
+        }
+
+        public Situation GetSubjectSituation(PlainText name)
+        {
+            return _gradeReport.First(d => d.Name == name).Situation; 
         }
     }
 }

@@ -39,24 +39,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deanship\ForStudentCalculation.cs" />
     <Compile Include="Deanship\IReportPublisher.cs" />
     <Compile Include="Deanship\StudyYear.cs" />
+    <Compile Include="Deanship\StudyYearFactory.cs" />
     <Compile Include="Generics\Attendence.cs" />
     <Compile Include="Generics\Credits.cs" />
+    <Compile Include="Generics\Exceptions\ArgumentCannotBeEmptyStringException.cs" />
+    <Compile Include="Generics\Exceptions\ArgumentInvalidLengthException.cs" />
+    <Compile Include="Generics\Exceptions\ArgumentInvalidValue.cs" />
+    <Compile Include="Generics\Exceptions\ArgumentInvalidValueExceptions.cs" />
     <Compile Include="Generics\Exceptions\InvalidCreditsValue.cs" />
     <Compile Include="Generics\Grade.cs" />
     <Compile Include="Generics\PlainText.cs" />
     <Compile Include="Generics\Proportion.cs" />
     <Compile Include="Generics\RegistrationNumber.cs" />
-    <Compile Include="Professor\Professor.cs" />
+    <Compile Include="Professor\Grades.cs" />
+    <Compile Include="Professor\SubjectsFactory.cs" />
+    <Compile Include="Student\GradeReportFactory.cs" />
+    <Compile Include="Student\RegisterSubjects.cs" />
+    <Compile Include="GenericEntities\Professor.cs" />
     <Compile Include="Professor\Subjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student\GradeReport.cs" />
-    <Compile Include="Student\Student.cs" />
-    <Compile Include="Subject\EvaluationType.cs" />
-    <Compile Include="Subject\Subject.cs" />
-    <Compile Include="Subject\SubjectInformation.cs" />
-    <Compile Include="Subject\SubjectSituation.cs" />
+    <Compile Include="GenericEntities\Situation.cs" />
+    <Compile Include="GenericEntities\Student.cs" />
+    <Compile Include="GenericEntities\EvaluationType.cs" />
+    <Compile Include="GenericEntities\Subject.cs" />
+    <Compile Include="GenericEntities\SubjectInformation.cs" />
+    <Compile Include="GenericEntities\SubjectSituation.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

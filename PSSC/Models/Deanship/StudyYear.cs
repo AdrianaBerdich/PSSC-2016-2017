@@ -1,47 +1,67 @@
 ﻿using Models.Generics;
-using Models.Subject;
+using Models.GenericEntities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
 namespace Models.Deanship
 {
     //Aggregate Root
     public class StudyYear
     {
-        private List<Subject.Subject> _definedSubjects;
-        public ReadOnlyCollection<Subject.Subject> Subjects { get { return _definedSubjects.AsReadOnly(); } }
+        private List<ForStudentCalculation> _definedSubjects;
+        public ReadOnlyCollection<ForStudentCalculation> Subjects { get { return _definedSubjects.AsReadOnly(); } }
 
         public StudyYear()
         {
 
         }
 
-        public StudyYear(List<Subject.Subject> definedSubjects)
+        public StudyYear(List<ForStudentCalculation> definedSubjects)
         {
+            Contract.Requires(definedSubjects != null, "definedSubjects");
+
             _definedSubjects = definedSubjects;
         }
 
         public void DefineSubject(PlainText subjectName, Credits credits, EvaluationType type, Proportion activity)
         {
-            _definedSubjects.Add(new Subject.Subject(new SubjectInformation(subjectName, credits, type, activity)));
+            Contract.Requires(subjectName != null, "subjectName");
+            Contract.Requires(credits != null, "credits");
+            Contract.Requires(type != null, "type");
+            Contract.Requires(activity != null, "activity");
+
+            _definedSubjects.Add(new ForStudentCalculation(new SubjectInformation(name, credits, type, activity)));
+        }
+        
+        public void DefineSubject(PlainText subjectName, Credits credits, EvaluationType type, Proportion activity, GenericEntities.Professor professor)
+        {
+            Contract.Requires(subjectName != null, "subjectName");
+            Contract.Requires(credits != null, "credits");
+            Contract.Requires(type != null, "type");
+            Contract.Requires(activity != null, "activity");
+            Contract.Requires(professor != null, "professor");
+
+            _definedSubjects.Add(new ForStudentCalculation(new SubjectInformation(name, credits, type, activity)));
         }
 
-        public void DefineSubject(PlainText subjectName, Credits credits, EvaluationType type, Proportion activity, Professor.Professor professor)
+        public void SignUpStudentToSubject(PlainText subjectName, GenericEntities.Student student)
         {
-            _definedSubjects.Add(new Subject.Subject(new SubjectInformation(subjectName, credits, type, activity, professor)));
-        }
+            Contract.Requires(subjectName != null, "subjectName");
+            Contract.Requires(student != null, "student");
 
-        public void SignUpStudentToSubject(PlainText subjectName, Student.Student student)
-        {
             _definedSubjects.Find(d => d.SubjectInfo.Name == subjectName).SignUpStudent(student);
         }
 
         public Grade CalculateStudentAverage(PlainText subjectName, RegistrationNumber regNumber)
         {
+            Contract.Requires(subjectName != null, "subjectName");
+            Contract.Requires(regNumber != null, "regNumber");
+
             return _definedSubjects.Find(d => d.SubjectInfo.Name == subjectName).GetAverageForStudent(regNumber);
         }
 
@@ -49,5 +69,16 @@ namespace Models.Deanship
         {
 
         }
+
+
+        public Situation GetStudSituation(PlainText subject, RegistrationNumber regNr)
+        {
+            return _definedSubjects.Find(d => d.Name == subject).GetStudentSituation(regNr);
+        }
+
+
+
+
+        public PlainText name { get; set; }
     }
 }

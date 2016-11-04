@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
-namespace Models.Student
+namespace Models.GenericEntities
 {
     //Entity
     public class Student
@@ -16,6 +17,9 @@ namespace Models.Student
 
         public Student(RegistrationNumber regNumber, PlainText name)
         {
+            Contract.Requires(regNumber != null, "registration number");
+            Contract.Requires(name != null, "name");
+
             RegNumber = regNumber;
             Name = name;
         }
@@ -23,6 +27,7 @@ namespace Models.Student
         public Student(RegistrationNumber regNumber, PlainText name, Credits credits)
             : this(regNumber, name)
         {
+            Contract.Requires(credits != null, "credits");
             Credits = credits;
         }
     }

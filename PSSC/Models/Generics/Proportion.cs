@@ -1,4 +1,12 @@
-﻿namespace Models.Generics
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
+using Models.Generics.Exceptions;
+
+namespace Models.Generics
 {
     public class Proportion
     {
@@ -8,6 +16,10 @@
 
         public Proportion(int numerator, int denominator)
         {
+            Contract.Requires<ArgumentException>(numerator > 0, "numarator");
+            Contract.Requires<ArgumentException>(denominator > 0, "numitor");
+            Contract.Requires<ArgumentException>(numerator < denominator, "nu este subunitar");
+           
             _numerator = numerator;
             _denominator = denominator;
         }

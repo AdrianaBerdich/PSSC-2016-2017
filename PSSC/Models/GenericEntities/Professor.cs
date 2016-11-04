@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Contracts;
 
-namespace Models.Professor
+namespace Models.GenericEntities
 {
     //Entity
     public class Professor
@@ -14,6 +15,8 @@ namespace Models.Professor
 
         public Professor(PlainText name)
         {
+            Contract.Requires(name != null, "name");
+            
             Name = name;
         }
     }
