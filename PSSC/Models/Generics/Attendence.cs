@@ -8,8 +8,10 @@ using Models.Generics.Exceptions;
 
 namespace Models.Generics
 {
+    //value object for Attendance
+
     public class Attendance
-    {
+    {   
         private int _count;
         public int Count { get; internal set; }
 

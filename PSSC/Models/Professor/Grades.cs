@@ -9,6 +9,8 @@ using Models.Generics;
 
 namespace Models.Professor
 {
+     //entity witch create list of grades
+
     public class Grades : SubjectSituation
     {
         public Attendance Attendance { get { return Attendance; } set { Attendance = value; } }

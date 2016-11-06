@@ -8,6 +8,8 @@ using Models.Generics.Exceptions;
 
 namespace Models.Generics
 {
+    //value object for Proportion
+
     public class Proportion
     {
         private int _numerator;

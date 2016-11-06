@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Models.Generics.Exceptions
 {
-    class ArgumentInvalidValue
+    class ArgumentInvalidValue : ArgumentException
     {
         public ArgumentInvalidValue(string message)
-            : base(message)
+            :base(message)
         {
 
         }

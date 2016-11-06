@@ -8,6 +8,8 @@ using Models.Generics.Exceptions;
 
 namespace Models.Generics
 {
+    //value object for Name
+
     public class PlainText
     {
         private string _text;

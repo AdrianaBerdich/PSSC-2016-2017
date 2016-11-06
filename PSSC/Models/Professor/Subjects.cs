@@ -10,7 +10,8 @@ using Models.GenericEntities;
 
 namespace Models.Professor
 {
-    //Aggregate Root
+    //Aggregate Root  
+    
     public class Subjects
     {
         private List<GenericEntities.Subject> _subjects;

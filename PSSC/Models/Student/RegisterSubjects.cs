@@ -8,6 +8,8 @@ using Models.Generics;
 
 namespace Models.Student
 {
+    //entity
+
     public class RegisterSubjects : Subject
     {
         public GenericEntities.Professor Professor { get; set; }

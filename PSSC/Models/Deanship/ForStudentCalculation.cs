@@ -9,6 +9,8 @@ using System.Diagnostics.Contracts;
 
 namespace Models.Deanship
 {
+     //entity
+
     class ForStudentCalculation : Subject
     {
        

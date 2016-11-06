@@ -9,6 +9,8 @@ using Models.Generics.Exceptions;
 
 namespace Models.Generics
 {
+    //value object for Credits 
+
     public class Credits
     {
         private const int _maxCredits = 60;

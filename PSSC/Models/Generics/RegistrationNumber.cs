@@ -8,6 +8,8 @@ using Models.Generics.Exceptions;
 
 namespace Models.Generics
 {
+    //value object for Reg Nr
+
     public class RegistrationNumber
     {
         private string _number;

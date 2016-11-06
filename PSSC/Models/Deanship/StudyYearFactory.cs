@@ -10,6 +10,8 @@ using Models.GenericEntities;
 
 namespace Models.Deanship
 {
+    //entity
+ 
     class StudyYearFactory
     {
         public static readonly StudyYearFactory Instance = new StudyYearFactory();

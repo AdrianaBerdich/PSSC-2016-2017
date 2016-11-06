@@ -10,7 +10,8 @@ using System.Diagnostics.Contracts;
 
 namespace Models.Deanship
 {
-    //Aggregate Root
+    //Aggregate Root 
+         
     public class StudyYear
     {
         private List<ForStudentCalculation> _definedSubjects;

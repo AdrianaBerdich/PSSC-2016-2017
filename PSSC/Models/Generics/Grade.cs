@@ -7,6 +7,8 @@ using System.Diagnostics.Contracts;
 
 namespace Models.Generics
 {
+    //value object for Grade
+
     public class Grade
     {
         private decimal _value;
